@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                Section("Usage") {
+                    Text(".permissionSheet([.camera...])")
+                        .monospaced()
+                }
+            }
+            .navigationTitle("Permission Example")
         }
-        .padding()
+        .permissionSheet([.location, .camera, .microphone, .photoLibrary])
     }
 }
 
